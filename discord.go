@@ -89,6 +89,8 @@ func New(args ...interface{}) (s *Session, err error) {
 
 		switch v := arg.(type) {
 
+		case *http.Client:
+			s.Client = v
 		case []string:
 			if len(v) > 3 {
 				err = fmt.Errorf("too many string parameters provided")
